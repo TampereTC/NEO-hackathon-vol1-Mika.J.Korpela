@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/duck_frontend_app.js"></script>
+    <script src="js/duck_frontend_ctrl.js"></script>
+    <body ng-app="duck_frontend_app">
+        <div class="w3-container" ng-controller="duck_frontend_ctrl">
+            <h3>Ducks</h3>
+            <table class="w3-table w3-bordered w3-striped">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="duck in ducks">
+                    <td>{{duck.first_name}}</td>
+                    <td>{{duck.last_name}}</td>
+                    <td>
+                        <button class="w3-btn w3-blue w3-ripple" ng-click="update(duck.id)">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                        <button class="w3-btn w3-red w3-ripple" ng-click="delete(duck.id)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <button class="w3-btn w3-green w3-ripple" ng-click="create()">
+                <span class="glyphicon glyphicon-pencil"></span>&nbsp;Create New Duck
+            </button>
+
+            <!-- duck editing form -->
+            <form ng-show="open_form">
+                <!-- shown when create new duck button is pushed -->
+                <h3 ng-show="edit">Create New Duck:</h3>
+                <!-- shown when edit button is pushed -->
+                <h3 ng-hide="edit">Edit Duck:</h3>
+                <label>First Name:</label>
+                <input class="w3-input w3-border" type="text" ng-model="first_name" placeholder="First Name">
+                <br>
+                <label>Last Name:</label>
+                <input class="w3-input w3-border" type="text" ng-model="last_name" placeholder="Last Name">
+                <br>
+                <button class="w3-btn w3-green w3-ripple" ng-click="save()" ng-disabled="incomplete"><span class="glyphicon glyphicon-ok"></span>&nbsp;Save</button>
+                <button class="w3-btn w3-red w3-ripple" ng-click="cancel()"><span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{
+    "name": "duckfrontend",
+    "version": "1.0.0",
+    "description": "Frontend application.",
+    "main": "server.js",
+    "scripts":
+            {
+                "start": "node server.js"
+            },
+    "author": "Mika J. Korpela",
+    "license": "ISC",
+    "dependencies":
+            {
+                "express": "^4.16.1"
+            }
+}

@@ -1,0 +1,1 @@
+var duck_frontend_app = angular.module('duck_frontend_app', []);
